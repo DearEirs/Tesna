@@ -71,10 +71,8 @@ class ServerDeleteView(DeleteView):
 class ServerListView(ListView):
     model = Server
     template_name = 'server/list.html'
-    success_url = reverse_lazy('assets:server_list')
 
 
 class ServerDetailView(DetailView):
     model = Server
     template_name = 'server/detail.html'
-    success_url = reverse_lazy('assets:server_list')

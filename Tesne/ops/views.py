@@ -1,19 +1,20 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals
+from django.shortcuts import redirect, HttpResponse, render
+from django.views.generic.edit import CreateView, DeleteView, FormView, UpdateView
+from django.urls import reverse_lazy
+from django.views.generic import TemplateView, ListView, View, DetailView
 
-from django.shortcuts import render
-
-# Create your views here.
-from assets.models import Asset
 from utils.salt import LocalClient, WebAPI
 
 
 client = LocalClient()
 webapi = WebAPI()
 
+
 def list_all_keys(request):
     keys = webapi.list_all_key()
-    return keys
+    return HttpResponse(keys)
+
 
 def cmd(request, tgt, func, *args, **kwargs):
     result = client.cmd(tgt, func, *args, **kwargs)

@@ -16,6 +16,7 @@ class WebAPI:
         self.__user = settings.SALT_API['user']
         self.__password = settings.SALT_API['password']
         self.__eauth = settings.SALT_API['eauth']
+        self.__token_id = ''
 
     def token_id(self):
         ''' user login and get token id '''
@@ -26,13 +27,13 @@ class WebAPI:
         except KeyError:
             raise KeyError
 
-    def postRequest(self,obj,prefix='/'):
+    def postRequest(self, obj, prefix='/'):
         url = self.__url + prefix
         headers = {'X-Auth-Token' : self.__token_id}
         response = requests.post(url,
-                                data = obj,
-                                headers = headers,
-                                verify = False
+                                 data = obj,
+                                 headers = headers,
+                                 verify = False
                                 )
         return response.json()
 
@@ -42,6 +43,7 @@ class WebAPI:
         content = self.postRequest(params)
         minions = content['return'][0]['data']['return']['minions']
         minions_pre = content['return'][0]['data']['return']['minions_pre']
+        print(minions, minions_pre)
         return minions, minions_pre
 
     def delete_key(self,node_name):

@@ -5,9 +5,9 @@
 
 
 SALT_API = {
-    'url': 'http://127.0.0.1:8000',
-    'user': 'salt',
-    'password': 'salt',
+    'url': 'https://127.0.0.1:8000',
+    'user': 'saltapi',
+    'password': 'saltapi',
     'eauth': 'pam'
 }
 

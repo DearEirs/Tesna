@@ -61,6 +61,10 @@ class IDCUpdateView(UpdateView):
 class IDCDeleteView(DeleteView):
     model = IDC
     template_name = 'idc/delete.html'
+    success_url = reverse_lazy('assets:idc_list')
+
+    def get(self, *args, **kwargs):
+        return self.post(args, kwargs)
 
 
 class IDCListView(ListView):
@@ -71,3 +75,4 @@ class IDCListView(ListView):
 class IDCDetailView(ListView):
     model = IDC
     template_name = 'idc/detail.html'
+

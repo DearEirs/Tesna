@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="m-li">
+<ul>
+    <table class="table table-striped table-bordered table-hover">
+        <tr>
+            <td>编号</td>
+            <td>名称</td>
+            <td>联系人</td>
+            <td>电话</td>
+            <td>地址</td>
+            <td>机器</td>
+            <td>备注</td>
+            <td>操作</td>
+        </tr>
+    {% for idc in idc_list %}
+        <tr>
+            <td>{{ idc.id }}</a></td>
+            <td>{{ idc.name}}</td>
+            <td>{{ idc.contact }}</td>
+            <td>{{ idc.phone }}</td>
+            <td>{{ idc.address }}</td>
+            <td>
+                {% for asset in idc.assets.all %}
+                <a href='#' %}>{{asset.hostname}},
+                {% endfor %}
+            </td>
+            <td>{{ idc.comment }}</td>
+            <td>
+                <a href="{% url 'assets:idc_update' pk=idc.id %}">
+                    <button type="button" class="btn btn-primary btn-xs">修改</button>
+                </a>
+                <a href="{% url 'assets:idc_delete' pk=idc.id %}">
+                    <button type="button" class="btn btn-danger btn-xs">删除</button>
+                </a>
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+</ul>
+
+</div>
+{% endblock %}
+
+{% block js%}
+<script>
+    var result = "{{ result }}";
+    if (result) {
+        alert(result);
+    }
+</script>
+{% endblock%}

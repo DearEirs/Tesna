@@ -1,0 +1,55 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!-- Meta, title, CSS, favicons, etc. -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>运维平台</title>
+
+        <!-- Bootstrap -->
+        <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet" media="screen">
+        <!-- Font Awesome -->
+        <link href="{% static "css/font-awesome.min.css" %}" rel="stylesheet">
+        <link href="{% static "js/vue.min.js" %}" >
+        {% block header %}
+        {% endblock %}
+        <!-- Custom Theme Style -->
+        <link href="{% static "css/custom.min.css" %}" rel="stylesheet">
+        <link href="/static/css/custom.min.css" %}" rel="stylesheet">
+    </head>
+
+    <body class="nav-md">
+        <div class="container body">
+            <div class="main_container">
+                {% include 'sidebar.html' %}
+                {% include 'top_navigation.html' %}
+            <div class="right_col" role="main">
+            <div>
+                    {% block main %}
+                    {% endblock %}
+            </div>
+            </div>
+                    <footer style="background: #EDEDED;border-top: 1px solid #D9DEE4;font-weight: bold;text-align: center">
+                        <div class="clearfix">
+                            运维平台 - Powered by Dear
+                        </div>
+                    </footer>
+            </div>
+        </div>
+
+        <!-- jQuery -->
+        <script src="{% static "js/jquery.min.js" %}"></script>
+        <!-- Bootstrap -->
+        <script src="{% static "js/bootstrap.min.js" %}"></script>
+        {% block js %}
+        {% endblock %}
+        <!-- Custom Theme Scripts -->
+        <script src="{% static "js/custom.min.js" %}"></script>
+
+
+    </body>
+</html>

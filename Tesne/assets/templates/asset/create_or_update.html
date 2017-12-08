@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+
+{% block main %}
+    <form action="" method="post" class="form-horizontal">
+    {% csrf_token %}
+    {% bootstrap_field form.type layout="horizontal" %}
+    {% bootstrap_field form.hostname layout="horizontal" %}
+    {% bootstrap_field form.status layout="horizontal" %}
+    {% bootstrap_field form.intranet layout="horizontal" %}
+    {% bootstrap_field form.internet layout="horizontal" %}
+    {% bootstrap_field form.idc layout="horizontal" %}
+    {% bootstrap_field form.cabinet_num layout="horizontal" %}
+    {% bootstrap_field form.cabinet_order layout="horizontal" %}
+    {% bootstrap_field form.vendor layout="horizontal" %}
+    {% bootstrap_field form.model layout="horizontal" %}
+    {% bootstrap_field form.sn layout="horizontal" %}
+    {% bootstrap_field form.comment layout="horizontal" %}
+
+    <div class="hr-line-dashed"></div>
+    <div class="form-group">
+        <div class="col-sm-4 col-sm-offset-2">
+            <button class="btn btn-default" type="reset">重置</button>
+            <button id="submit_button" class="btn btn-primary" type="submit">提交</button>
+        </div>
+    </div>
+    </form>
+{% endblock %}

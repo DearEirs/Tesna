@@ -1,0 +1,52 @@
+{% load staticfiles %}
+
+<div class="col-md-3 left_col">
+    <div class="left_col scroll-view">
+        <div class="navbar nav_title" style="border: 0;">
+            <a href="/" class="site_title"><i class="fa fa-paw"></i> <span>回到首页</span></a>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <!-- menu profile quick info -->
+        <div class="profile">
+            <div class="profile_pic">
+                <img src="{% static "img/avatar2.jpg" %}" alt="..." class="img-circle profile_img">
+            </div>
+            <div class="profile_info">
+                <span>Welcome,Dear</span>
+            </div>
+        </div>
+        <!-- /menu profile quick info -->
+
+        <br />
+        <!-- sidebar menu -->
+        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+            <div class="menu_section">
+                <ul class="nav side-menu">
+                    <li><a><i class="fa fa-cubes"></i>资产管理<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="{% url 'assets:asset_list' %}">资产</a></li>
+                            <li><a href="{% url 'assets:server_list' %}">主机</a></li>
+                            <li><a href="{% url 'assets:idc_list' %}">IDC</a></li>
+                        </ul>
+                    <li>
+                    <li><a><i class="fa fa-cubes"></i>SaltStack<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="{% url 'list_all_keys' %}">Keys</a></li>
+                            <li><a href="#">cmds</a></li>
+                            <li><a href="#">state</a></li>
+                            <li><a href="#">Jobs</a></li>
+                            <li><a href="#">cron</a></li>
+                        </ul>
+                    </li>
+                    <li><a><i class="fa fa-cubes"></i>日志审计<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="#">操作记录</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form action="" method="post">
+    {% csrf_token %}
+    <p>确定删除主机 <b>{{ object.hostname }} </b> ?</p>
+    <input type="submit" value="确认" />
+</form>
+</body>
+</html>

@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <table class="table table-striped table-bordered table-hover">
+        <tr>
+            <td>编号</td>
+            <td><a href="{% url 'assets:server_update' pk=server.id %}">{{ server.id }}</a></td>
+            <td>主机名</td>
+            <td>{{ server.hostname }}</td>
+        </tr>
+        <tr>
+            <td>所属主机</td>
+            <td>{{ server.host }}</td>
+            <td>设备状态</td>
+            <td>{{ server.get_status_display }}</td>
+        </tr>
+        <tr>
+            <td>内网IP</td>
+            <td>{{ server.intranet }}</a></td>
+            <td>公网IP</td>
+            <td>{{ server.internet }}</a></td>
+        </tr>
+        <tr>
+            <td>运行环境</td>
+            <td>{{ server.env }}</td>
+            <td>机柜号</td>
+            <td>{{ server.cabinet_num }}</td>
+        </tr>
+        <tr>
+            <td>CPU核心数</td>
+            <td>{{ server.cores }}</td>
+            <td>内存</td>
+            <td>{{ server.memory }}</td>
+        </tr>
+        <tr>
+            <td>硬盘</td>
+            <td>{{ server.disk }}</td>
+            <td>平台</td>
+            <td>{{ server.platform }}</td>
+        </tr>
+        <tr>
+            <td>操作系统</td>
+            <td>{{ server.os }}</td>
+            <td>操作系统版本</td>
+            <td>{{ server.os_version }}</td>
+        </tr>
+        <tr>
+            <td>创建人</td>
+            <td>{{ server.created_by }}</td>
+            <td>创建时间</td>
+            <td>{{ server.date_created }}</td>
+        </tr>
+        <tr>
+            <td>最后修改时间</td>
+            <td>{{ server.date_updated }}</td>
+        </tr>
+        <tr>
+            <td>备注</td>
+            <td>{{ server.comment }}</td>
+        </tr>
+    </table>
+    </li>
+</ul>
+
+</div>
+{% endblock %}
+
+{% block js%}
+
+{% endblock%}

@@ -41,10 +41,8 @@ class WebAPI:
         params = {'client': 'wheel', 'fun': 'key.list_all'}
         self.token_id()
         content = self.postRequest(params)
-        minions = content['return'][0]['data']['return']['minions']
-        minions_pre = content['return'][0]['data']['return']['minions_pre']
-        print(minions, minions_pre)
-        return minions, minions_pre
+        minions = content['return'][0]['data']['return']
+        return minions
 
     def delete_key(self,node_name):
         params = {'client': 'wheel', 'fun': 'key.delete', 'match': node_name}
@@ -57,6 +55,7 @@ class WebAPI:
         params = {'client': 'wheel', 'fun': 'key.accept', 'match': node_name}
         self.token_id()
         content = self.postRequest(params)
+        print(content)
         ret = content['return'][0]['data']['success']
         return ret
 

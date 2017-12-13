@@ -10,6 +10,11 @@ from django.utils.translation import ugettext_lazy as _
 from assets.models import Asset, ENV
 
 class Server(models.Model):
+    ENV_CHOICES = (
+        ('Dev', _(u'开发环境')),
+        ('UAT', _(u'UAT环境')),
+        ('Prod', _(u'生产环境')),
+    )
 
     STATUS_CHOICES = (
         ('In use', _(u'开启')),
@@ -17,13 +22,14 @@ class Server(models.Model):
     )
 
     hostname = models.CharField(max_length=128, unique=True, verbose_name=_(u'主机名'), db_index=True)
+    salt_id = models.CharField(max_length=128, verbose_name=_(u'SaltID'))
     host = models.ForeignKey(Asset, blank=True, null=True, related_name=u'host', verbose_name=_(u'所属主机'))
     status = models.CharField(choices=STATUS_CHOICES, max_length=12, null=True, blank=True,
                               default='In use', verbose_name=_(u'状态'))
-    env = models.ForeignKey(ENV, blank=True, null=True, related_name='env',
-                            verbose_name=_(u'运行环境'),)
+    env = models.CharField(choices=ENV_CHOICES, max_length=12, null=True, blank=True,
+                              default='Dev', verbose_name=_(u'运行环境'))
     intranet = models.GenericIPAddressField(max_length=32, verbose_name=_(u'内网IP'))
-    internet = models.GenericIPAddressField(max_length=32, verbose_name=_(u'公网IP'))
+    internet = models.GenericIPAddressField(max_length=32, verbose_name=_(u'公网IP'), null=True)
     cpu_cores = models.IntegerField(null=True, verbose_name=_('CPU cores'))
     memory = models.CharField(max_length=64, null=True, blank=True, verbose_name=_('Memory'))
     disk = models.CharField(max_length=1024, null=True, blank=True, verbose_name=_('Disk info'))

@@ -33,11 +33,12 @@
                     <li>
                     <li><a><i class="fa fa-cubes"></i>SaltStack<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="{% url 'list_all_keys' %}">Keys</a></li>
-                            <li><a href="#">cmds</a></li>
-                            <li><a href="#">state</a></li>
-                            <li><a href="#">Jobs</a></li>
-                            <li><a href="#">cron</a></li>
+                            <li><a href="{% url 'ops:keys_list' %}">主机认证</a></li>
+                            <li><a href="{% url 'ops:job_create' %}">执行命令</a></li>
+                            <li><a href="#">state管理</a></li>
+                            <li><a href="#">远程管理</a></li>
+                            <li><a href="{% url 'ops:job_list' %}">Jobs管理</a></li>
+                            <li><a href="#">计划任务</a></li>
                         </ul>
                     </li>
                     <li><a><i class="fa fa-cubes"></i>日志审计<span class="fa fa-chevron-down"></span></a>

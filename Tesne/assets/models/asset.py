@@ -24,7 +24,7 @@ class Asset(models.Model):
                             default='Server', verbose_name=_(u'类别'),)
     hostname = models.CharField(max_length=128, unique=True, verbose_name=_(u'主机名'))
     intranet = models.GenericIPAddressField(max_length=32, verbose_name=_(u'内网IP'))
-    internet = models.GenericIPAddressField(max_length=32, verbose_name=_(u'公网IP'))
+    internet = models.GenericIPAddressField(max_length=32, verbose_name=_(u'公网IP'), null=True)
     status = models.CharField(choices=STATUS_CHOICES, max_length=12, null=True, blank=True,
                               default='In use', verbose_name=_(u'状态'))
     idc = models.ForeignKey(IDC, blank=True, null=True, related_name='assets',

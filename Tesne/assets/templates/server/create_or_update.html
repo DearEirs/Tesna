@@ -5,6 +5,7 @@
     <form action="" method="post" class="form-horizontal">
     {% csrf_token %}
     {% bootstrap_field form.hostname layout="horizontal" %}
+    {% bootstrap_field form.salt_id layout="horizontal" %}
     {% bootstrap_field form.intranet layout="horizontal" %}
     {% bootstrap_field form.internet layout="horizontal" %}
     {% bootstrap_field form.status layout="horizontal" %}

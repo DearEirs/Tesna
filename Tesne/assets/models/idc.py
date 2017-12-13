@@ -8,6 +8,12 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class IDC(models.Model):
+    ENV_CHOICES = (
+        ('Server', _(u'服务器')),
+        ('Switch', _(u'交换机')),
+        ('Router', _(u'路由器')),
+        ('Firewall', _(u'防火墙')),
+    )
     name = models.CharField(max_length=32, verbose_name=_(u'名称'))
     contact = models.CharField(
         max_length=128, blank=True, verbose_name=_(u'联系人'))

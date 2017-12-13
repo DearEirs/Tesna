@@ -19,16 +19,17 @@ class ServerCreateView(CreateView):
     success_url = reverse_lazy('assets:server_list')
 
     def form_valid(self, form):
+        print('form_valid')
         self.server = server = form.save()
         server.created_by = self.request.user.username
         now = timezone.now()
         server.date_created = now
         server.date_updated = now
         server.save()
-        print(server)
         return super(ServerCreateView, self).form_valid(form)
 
     def get_context_data(self, **kwargs):
+        print('get_context')
         context = {
             'app': 'assets',
             'action': 'Create server',

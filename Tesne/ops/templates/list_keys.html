@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<br><br><br>
+    <ul class="list-group">
+        <li class="list-group-item">Accepted Keys</li>
+        {% for accept_key in minions %}
+        <li class="list-group-item">
+            {{ accept_key }}
+            <a href='{% url 'ops:key_delete' key=accept_key%}' class="btn btn-link btn-lg">
+                    <span class="glyphicon glyphicon-minus " aria-hidden="true"></span>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    <ul class="list-group">
+        <li class="list-group-item">Unaccepted Keys</li>
+        {% for unaccept_key in minions_pre %}
+        <li class="list-group-item">
+            {{ unaccept_key }}
+            <a href='{% url 'ops:key_accept' key=unaccept_key%}' class="btn btn-link btn-lg">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    <ul class="list-group">
+        <li class="list-group-item">Denied Keys</li>
+        {% for denied_key in minions_denied %}
+        <li class="list-group-item">
+            {{ denied_key }}
+            <a href='{% url 'ops:key_accept' key=denied_kery  %}' class="btn btn-link btn-lg">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true">添加</span>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    <ul class="list-group">
+        <li class="list-group-item">Rejected Keys</li>
+        {% for reject_key in minions_rejected %}
+        <li class="list-group-item">{{ reject_key }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+{% block js%}
+
+{% endblock%}

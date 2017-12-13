@@ -3,6 +3,11 @@
 {% block main %}
 <div class="m-li">
 <ul>
+    <a href='{% url 'assets:idc_create' %}'>
+        <button type="button" class="btn btn-info" aria-label="Left Align">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true">添加</span>
+        </button>
+    </a>
     <table class="table table-striped table-bordered table-hover">
         <tr>
             <td>编号</td>

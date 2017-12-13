@@ -10,32 +10,24 @@ from models import IDC, Asset, Server
 
 
 class AssetCreateForm(forms.ModelForm):
+    internet = forms.GenericIPAddressField(required=False, label=u'公网ip')
+
     class Meta:
         model = Asset
         fields = [
-            'type', 'hostname', 'status', 'intranet', 'internet', 'idc',
+            'type', 'hostname', 'status', 'intranet', 'idc', 'internet',
             'cabinet_num', 'cabinet_order', 'vendor', 'model', 'sn', 'comment'
         ]
-        '''
-        widgets = {
-            'groups': forms.SelectMultiple(
-                attrs={'class': 'select2',
-                       'data-placeholder': _('Select asset groups')}),
-            'admin_user': forms.Select(
-                attrs={'class': 'select2',
-                       'data-placeholder': _('Select asset admin user')}),
-        }
-        help_texts = {
-            'intranet': '* required',
-        }
-        '''
 
 
 class ServerCreateForm(forms.ModelForm):
+    internet = forms.GenericIPAddressField(required=False, label=u'公网ip')
+
     class Meta:
         model = Server
         fields = [
-            'hostname', 'host', 'status', 'intranet', 'internet', 'env','comment'
+            'hostname', 'host', 'status', 'intranet', 'env','comment',
+            'salt_id', 'internet'
         ]
 
 

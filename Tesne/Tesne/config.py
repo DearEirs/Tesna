@@ -3,6 +3,7 @@
 # arthur:Dear
 # 2017-12-05 15:14:31
 
+SALT_CONFIG = '/etc/salt/master'
 
 SALT_API = {
     'url': 'https://127.0.0.1:8000',
@@ -30,3 +31,4 @@ SERVICE = {
     "redis": "redis",
     "memcached": "memcached"
 }
+

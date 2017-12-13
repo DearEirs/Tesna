@@ -15,9 +15,16 @@ Including another URLconf
 """
 from django.conf.urls import url
 
-from ops.views import list_all_keys
+from ops.views import keys_list, key_accept, key_delete
+from ops.views import JobCreateView, JobListView, JobDetailView
 
+app_name = 'ops'
 
 urlpatterns = [
-    url(r'list_all_keys', list_all_keys, name='list_all_keys'),
+    url(r'keys/list', keys_list, name='keys_list'),
+    url(r'keys/(?P<key>[0-9a-zA-Z\.\_\-]+)/accept', key_accept, name='key_accept'),
+    url(r'keys/(?P<key>[0-9a-zA-Z\.\_\-]+)/delete', key_delete, name='key_delete'),
+    url(r'job/create', JobCreateView.as_view(), name='job_create'),
+    url(r'job/list', JobListView.as_view(), name='job_list'),
+    url(r'job/detail/(?P<job_id>\d+)', JobDetailView.as_view(), name='job_detail'),
 ]
